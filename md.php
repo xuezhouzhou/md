@@ -10,7 +10,7 @@
 	if(file_exists($url)){
 		$my_text = file_get_contents($url);	
 	}else{
-		//header("Location:http://md.xuezz.cn");	
+		header("Location:http://md.xuezz.cn");	
 	}
 	$my_html = Markdown($my_text);
 ?>

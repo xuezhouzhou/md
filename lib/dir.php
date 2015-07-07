@@ -4,10 +4,10 @@ function createDir($path = '.') {
 		echo "<ul>"; 
 		while (false !== ($file = readdir($handle))) {
 			 	
-			if (is_dir($path.$file) && $file != '.' && $file !='..') 
+			if (is_dir($path.$file) && $file != '.' && $file !='..' && $file!='.DS_Store') 
 			{
 				printSubDir($file, $path, $queue); 	
-			}else if ($file != '.' && $file !='..') {
+			}else if ($file != '.' && $file !='..' && $file!='.DS_Store') {
 				$queue[] = $file; 
 			}
 		} 
@@ -27,14 +27,17 @@ function printQueue($queue, $path)
 
 function printFile($file, $path) 
 { 
-	$file = iconv('GB2312','UTF-8',$file);
-	$path = iconv('GB2312','UTF-8',$path);
+	//$file = iconv('GB2312','UTF-8',$file);
+	//$path = iconv('GB2312','UTF-8',$path);
+	
 	echo '<li class="link"><a data-url="'.$path.$file.'">'.$file.'</a></li>';
 }
  
 function printSubDir($dir, $path) 
 {
-	$dir_show = iconv('GB2312','UTF-8',$dir); 
+	//$dir_show = iconv('GB2312','UTF-8',$dir); 
+	
+	$dir_show = $dir;
 	echo '<li><div class="toggle" data-open="1"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;'.$dir_show.'</div>'; 
 	createDir($path.$dir."/"); 
 	echo "</li>"; 

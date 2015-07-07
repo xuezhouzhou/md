@@ -56,11 +56,16 @@
 
 #search-list{
 	display:none;	
+	padding-top:55px;
 }
 
 .key{
 	padding:10px;
 	border-bottom:1px dotted #ddd;
+	position:absolute;
+	width:380px;
+	left:0;
+	top:0;
 }
 
 .s-list a{

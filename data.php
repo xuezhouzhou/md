@@ -11,16 +11,16 @@ function traverse($path = '.'){
 	
 	while(($file = readdir($current_dir))!==false){
 		$sub_dir = $path . '/' . $file;
-		if($file=='.' || $file=='..'){
+		if($file=='.' || $file=='..' || $file=='.DS_Store'){
 			continue;
 		}else if(is_dir($sub_dir)){
 			//如果是目录,进行递归
 			traverse($sub_dir);
 		}else{
-			$temp['file_path'] = iconv('GB2312','UTF-8',$path);
-			$temp['file_name'] = iconv('GB2312','UTF-8',$file);
-			//$temp['file_path'] = $path;
-			//$temp['file_name'] = $file;
+			//$temp['file_path'] = iconv('GB2312','UTF-8',$path);
+			//$temp['file_name'] = iconv('GB2312','UTF-8',$file);
+			$temp['file_path'] = $path;
+			$temp['file_name'] = $file;
 			array_push($arr,$temp);
 		}
 	}

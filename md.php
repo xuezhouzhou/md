@@ -3,7 +3,7 @@
 	include_once "lib/markdown.php";
 	$url = $_GET['md'];
 	$temp_arr = explode("/",$url);
-	$url = iconv("utf-8", "gbk",$url);
+	//$url = iconv("utf-8", "gbk",$url);
 	$count = count($temp_arr) - 1;
 	$title = $temp_arr[$count];
 	$title = str_replace(".md","",$title );
